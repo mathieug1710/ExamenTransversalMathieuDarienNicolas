@@ -1,0 +1,71 @@
+{% extends 'core/base.html'%}
+{% load static %}
+
+{% block content %}
+ 
+  <!-- Carrito-->
+
+    <h2>Carro</h2>
+    <section id="catalogo">
+      <table>
+        <thead>
+          <tr>
+            <th>Codigo</th>
+            <th>Detalle</th>
+            <th>Imagen</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in carro%}
+              <tr>
+                <td>{{ item.0 }}</td>
+                <td>{{ item.1 }}</td>
+                <td><img src="{{ item.2 }}" alt=""></td>
+                <td>{{ item.3 }}</td>
+                <td>{{ item.4 }}</td>
+                <td>{{ item.5 }}</td>
+                <td>
+                  <a href="{% url 'dropitem' item.0 %}">
+                    <img src="{% static 'img/icons8_erase_30px.png'%}" alt="">
+                  </a>
+                </td>
+              </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+    {% if not carro%}
+    <h2 style="width: 100%; text-align: center; margin: 30px;">El carrito esta vacio!</h2>
+    {% else %}
+    <div class="comprar">
+      <a href="{% url 'comprar' %}">Comprar</a>
+    </div>
+    {% endif %}
+
+  <!-- Carrito-->
+
+
+<div class="modal fade" id="boton" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ {% endblock %}

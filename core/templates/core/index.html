@@ -1,0 +1,151 @@
+{% extends 'core/base.html'%}
+{% load static %}
+
+{% block content %}
+
+<div id="carouselExampleIndicators" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+      aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+      aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+      aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item carousel-image bg-img-1 active">
+      <img src="{% static 'img/amistad.jpg' %}" class="d-block w-100 h-100" alt="...">
+    </div>
+    <div class="carousel-item carousel-image  bg-img-2">
+      <img src="{% static 'img/las_razas_de_perros_que_se_llevan_bien_con_gatos_51921_600_square.jpg' %}" class="d-block w-100 h-100" alt="...">
+    </div>
+    <div class="carousel-item carousel-image  bg-img-3">
+      <img src="{% static 'img/mitos-perros-gatos.jpg' %}" class="d-block w-100 h-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+<div class="container" style="margin-top: 50px;">
+
+
+  <div class="container">
+    <div>
+      <h3 id="gif-title" style="font-weight: bold;">¿Quieres saber sobre nosotros?.</h3>
+      <img id="gif" src="{% static 'img/PEEROS (302).gif'%}" alt="">
+    </div>
+
+    <a href="{% url 'nosotros' %}" id="viewmorebtn">Sobre nosotros</a>
+
+
+
+  </div>
+
+</div>
+
+<div class="banner">
+  <div class="content">
+    <h1>10% de descuento en Collar LV si estas subscrito </h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+    <div id="bannerbtn"><button>Subscribirse Ahora</button></div>
+  </div>
+</div>
+
+<div class="container" style="margin-top: 100px;">
+  <hr>
+</div>
+<div class="container">
+  <h3 style="font-weight: bold;">Productos</h3>
+  <p></p>
+
+  <hr>
+  <a href="{% url 'tienda' %}" id="viewmorebtn">Ver Productos</a>
+</div>
+
+<div class="container" id="offer">
+  <div class="row">
+    <div class="col-md-4 py-3 py-md-0">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <h5>Envio Gratis</h5>
+      <p>Por compras sobre $40.000</p>
+    </div>
+    <div class="col-md-4 py-3 py-md-0">
+      <i class="fa-solid fa-truck"></i>
+      <h5>Envio Rapido</h5>
+      <p>Todo Chile</p>
+    </div>
+    <div class="col-md-4 py-3 py-md-0">
+      <i class="fa-solid fa-thumbs-up"></i>
+      <h5>Gran Opcion</h5>
+      <p>Muchos Productos</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="suscripcion">
+  <h4 id="suscipcion-id" class="suscipcion-titulo">
+    ¡Suscribete y recibirás 15% Dcto. en tu primera compra!
+  </h4>
+  <form class="row g-3">
+    <div class="sus-nombre col-md-4">
+      <label for="validationDefault01" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="validationDefault01" value="" placeholder="Ej: Juanito" required />
+    </div>
+    <div class="col-md-4">
+      <label for="validationDefault02" class="form-label">Apellido</label>
+      <input type="text" class="form-control" id="validationDefault02" value="" placeholder="Ej: Perez" required />
+    </div>
+    <div class="col-md-6 col-lg-8">
+      <label for="validationDefault03" class="form-label">Correo electrónico</label>
+      <input type="text" class="form-control" id="validationDefault03" placeholder="nombre@correo.com" required />
+    </div>
+    <div class="terminos">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required />
+        <label class="form-check-label" for="invalidCheck2">
+          Aceptar terminos y condiciones.
+        </label>
+        <p class="terminos-desc">
+          *Al suscribirse acepta recibir ofertas y mensajes de nuevos
+          productos a su correo electrónico.
+        </p>
+      </div>
+    </div>
+
+    <div class="suscripcion-btn">
+      <button class="btn btn-primary" type="submit" data-bs-target="#boton" data-bs-toggle="modal">Suscribirse</button>
+    </div>
+  </form>
+</div>
+
+
+
+<div class="modal fade" id="boton" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

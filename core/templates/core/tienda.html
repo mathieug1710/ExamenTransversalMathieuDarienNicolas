@@ -1,0 +1,52 @@
+{% extends 'core/base.html'%}
+{% load static %}
+
+{% block content %}
+  <!--banner-->
+  <div class="banner">
+    <div class="content">
+      <h1>10% de descuento en Collar LV si estas subscrito </h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+      <div id="bannerbtn"><button>Subscribirse Ahora</button></div>
+    </div>
+  </div>
+  <!--banner-->
+
+  <!-- product cards -->
+  <div class="container" id="product-cards">
+    <h1 class="text-center">PRODUCTOS</h1>
+    <div class="productos" style="margin-top: 30px;">
+      <!-- <div class="col-md-3 py-3 py-md-0"> -->
+      {% for comida in producto%}
+      <div class="card">
+        <img src="{{comida.imagen}}" alt="">
+        <div>
+          <div class="card-body">
+            <h3>{{comida.detalle}}</h3>
+            <p>Lorem ipsum dolor sit amet.</p>
+            <div class="star">
+              <i class="fas fa-star checked"></i>
+              <i class="fas fa-star checked"></i>
+              <i class="fas fa-star checked"></i>
+              <i class="fas fa-star checked"></i>
+              <i class="fas fa-star checked"></i>
+            </div>
+            <h5>Quedan</h5>
+            <h5>{{ comida.stock }}</h5>
+            <br>
+            <h5>${{comida.precio}} <strike>{{comida.tachado}}</strike><span><i class="fa-solid fa-cart-shopping"></i></span></h5>
+            <div class="agregar">
+                <a href="{% url 'addtocar' comida.codigo %}">Agregar</a>
+                <img src="{% static 'img/icons8_buy_24px_1.png'%}" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <!-- product cards -->
+
+  <hr>
+  
+  {% endblock %}

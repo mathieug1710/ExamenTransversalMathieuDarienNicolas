@@ -1,0 +1,20 @@
+{% extends 'core/base.html'%}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  
+<h2>Suscripcion</h2>
+  <section id="catalogo">
+    {% if suscrito %}
+       <h3>Felicidades estas suscrito</h3>
+       <small>Disfruta de los beneficios!</small>
+    {% else %}
+       <form action="{% url 'suscribir' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Suscribete</button>
+       </form>
+    {% endif %}
+  </section>
+  
+ {% endblock %}
